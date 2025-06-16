@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: students-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: students-api
+  template:
+    metadata:
+      labels:
+        app: students-api
+    spec:
+      containers:
+      - name: fastapi
+        image: students-api:latest
+        ports:
+        - containerPort: 8000
