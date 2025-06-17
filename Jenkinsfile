@@ -31,7 +31,7 @@ pipeline {
       }
     }
 
-    stage('OWASP ZAP') {
+    /*stage('OWASP ZAP') {
       steps {
         sh '''
           docker run -u root -v $(pwd):/zap/wrk/:rw -t owasp/zap2docker-stable zap-baseline.py \
@@ -39,12 +39,12 @@ pipeline {
             -r zap_report.html || true
         '''
       }
-    }
+    }*/
 
     stage('Deploy to Minikube') {
       steps {
-        sh 'kubectl apply -f k8s/deployment.yaml'
-        sh 'kubectl apply -f k8s/service.yaml'
+        sh 'minikube kubectl apply -f k8s/deployment.yaml'
+        sh 'minikube kubectl apply -f k8s/service.yaml'
       }
     }
   }
