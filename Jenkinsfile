@@ -4,6 +4,7 @@ pipeline {
   environment {
     IMAGE_NAME = "students-api"
     TAG = "latest"
+    KUBECONFIG = '/var/lib/jenkins/.kube/config'
   }
 
   stages {
@@ -43,6 +44,7 @@ pipeline {
 
     stage('Deploy to Minikube') {
       steps {
+        sh 'export KUBECONFIG=/var/lib/jenkins/.kube/config'
         sh 'kubectl apply -f k8s/deployment.yaml'
         sh 'kubectl apply -f k8s/service.yaml'
       }
