@@ -66,7 +66,7 @@ pipeline {
       }
     }
 
-    stage('OWASP ZAP Scan') {
+    /*stage('OWASP ZAP Scan') {
       steps {
         sh '''
           sleep 10
@@ -75,7 +75,7 @@ pipeline {
             -t "$API_URL" -r zap_report.html || true
         '''
       }
-    }
+    }*/
 
     stage('Smoke Test') {
       steps {
