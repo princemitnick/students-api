@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: fastapi
-        image: students-api:latest
+        image: princemitnick/students-api:latest
         ports:
         - containerPort: 8000
