@@ -6,7 +6,7 @@ pipeline {
     DOCKER_IMAGE = "princemitnick/students-api"
     VERSION = "1.0.${BUILD_NUMBER}"
     TAG_BUILD = "${DOCKER_IMAGE}:${VERSION}"
-    //TAG_LATEST = "${DOCKER_IMAGE}:latest"
+    TAG_LATEST = "${DOCKER_IMAGE}:latest"
     KUBECONFIG = "/var/lib/jenkins/.kube/config"
   }
 
@@ -25,8 +25,7 @@ pipeline {
     stage('Build Docker Image') {
       steps {
         sh '''
-          eval $(minikube docker-env)
-          docker build -t ${TAG_BUILD} .
+          docker build -t ${TAG_BUILD} -t ${TAG_LATEST} .
         '''
       }
     }
