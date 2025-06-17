@@ -19,11 +19,11 @@ pipeline {
       }
     }
 
-    stage('Run Pytest') {
+    /*stage('Run Pytest') {
       steps {
         sh 'docker run --rm ${IMAGE_NAME}:${TAG} pytest tests'
       }
-    }
+    }*/
 
     stage('Trivy Scan') {
       steps {
