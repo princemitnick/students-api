@@ -32,7 +32,7 @@ pipeline {
 
     stage('Run Pytest') {
       steps {
-        sh 'docker run --rm ${TAG_BUILD} pytest tests'
+        sh 'docker run --rm ${TAG_BUILD} bash -c "PYTHONPATH=. pytest tests"'
       }
     }
 
