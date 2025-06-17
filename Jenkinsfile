@@ -2,6 +2,7 @@ pipeline {
   agent any
 
   environment {
+    AUTHOR = "Prin..."
     DOCKER_IMAGE = "princemitnick/students-api"
     VERSION = "1.0.${BUILD_NUMBER}"
     TAG_BUILD = "${DOCKER_IMAGE}:${VERSION}"
