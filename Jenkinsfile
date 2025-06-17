@@ -59,7 +59,7 @@ pipeline {
     stage('Deploy to Minikube') {
       steps {
         sh '''
-          export KUBECONFIG=${KUBECONFIG}
+          kubectl get nodes
           kubectl set image deployment/students-deployment students=${TAG_BUILD} --record || kubectl apply -f k8s/deployment.yaml
           kubectl apply -f k8s/service.yaml
         '''
