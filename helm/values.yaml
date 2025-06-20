@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: princemitnick/students-api
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 8000
+  targetPort: 8000
+
+resources: {}
